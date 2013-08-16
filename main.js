@@ -1,11 +1,27 @@
 function DirectionHelper(id)
 {
-
   var rendererOptions, chicago, mapOptions;
   this.directionsDisplay = null;
   this.id = id;
   this.map = null;
   this.directionsService = new google.maps.DirectionsService();
+  
+  var startElement = document.createElement('input');
+  startElement.id = 'start_'+id;
+  startElement.value = 'The Loop';
+  document.body.appendChild(startElement);
+  var endElement = document.createElement('input');
+  endElement.id = 'end_'+id;
+  endElement.value = 'Grant Park';
+  document.body.appendChild(endElement);
+  var mapElement = document.createElement('div');
+  mapElement.id = "map_" + id;
+  mapElement.className = 'map';
+  document.body.appendChild(mapElement);
+  var directionsPanelElement = document.createElement('div');
+  directionsPanelElement.id = 'directions_panel'+id;
+  directionsPanelElement.className='directions';
+  document.body.appendChild(directionsPanelElement);
 
   rendererOptions = {
     draggable: true,
